@@ -27,3 +27,12 @@ jobs:
         with: 
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASSWORD}}
+
+      - name: Build, tag and publish image to dockerhub
+        id: build-image
+        env:
+          IMAGE_TAG: ${{github.sha}}
+        run:
+          docker build -t pppablo/store:$IMAGE_TAG   
+          docker push pppablo/store:$IMAGE_TAG
+          echo "::set-output name=image::pppablo/store:$IMAGE_TAG" 
