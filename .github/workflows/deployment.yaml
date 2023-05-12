@@ -32,7 +32,7 @@ jobs:
         id: build-image
         env:
           IMAGE_TAG: ${{github.sha}}
-        run:
+        run: |
           docker build -t pppablo/store:$IMAGE_TAG .
           docker push pppablo/store:$IMAGE_TAG
           echo "::set-output name=image::pppablo/store:$IMAGE_TAG" 
