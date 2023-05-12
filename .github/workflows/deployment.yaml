@@ -31,8 +31,8 @@ jobs:
       - name: Build, tag and publish image to dockerhub
         id: build-image
         env:
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: ${{github.sha}}
         run:
-          docker build -t pppablo/store:$IMAGE_TAG .
-          docker push pppablo/store:$IMAGE_TAG
-          echo "::set-output name=image::pppablo/store:$IMAGE_TAG" 
+          docker build -t pppablo/store:333 .
+          docker push pppablo/store:333
+          echo "::set-output name=image::pppablo/store:333" 
