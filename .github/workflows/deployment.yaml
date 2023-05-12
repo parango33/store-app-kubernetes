@@ -36,3 +36,14 @@ jobs:
           docker build -t pppablo/store:$IMAGE_TAG .
           docker push pppablo/store:$IMAGE_TAG
           echo "::set-output name=image::pppablo/store:$IMAGE_TAG" 
+
+      - name: Install Kubectl
+        uses: azure/setup-kubectl@v1
+
+      - name: Update Kubectl context
+        run: aws eks update-kubeconfig --name pablo-eks-cluster --region us-east-2
+
+      - name: Deploy Image to Amazon EKS
+        run: |
+          kubectl set image deployment/store store=${{steps.build-image.outputs.image}}    
+

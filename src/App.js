@@ -38,7 +38,7 @@ function App() {
           fontFamily="Robo"
           my="5px"
         >
-          Golden Bakery
+          Golden Pablo Bakery
         </Text>
 
         <Checkout />
