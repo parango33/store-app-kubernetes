@@ -13,7 +13,7 @@ jobs:
 
     steps: 
       - name: Checkout
-        run: actions/checkout
+        uses: actions/checkout
       
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials
